@@ -92,6 +92,23 @@ selected_species = st.sidebar.multiselect(
     default=[identified_species] if identified_species else []
 )
 
+# --- Dynamic Specimen Viewer ---
+if selected_species:
+    st.sidebar.markdown("### Specimen Reference")
+    for species in selected_species:
+        # Notice we are using 'reference_images' here for the cloud deployment!
+        species_path = os.path.join('reference_images', species)
+        
+        if os.path.exists(species_path):
+            images = os.listdir(species_path)
+            if images:
+                first_image_path = os.path.join(species_path, images[0])
+                try:
+                    img = Image.open(first_image_path)
+                    st.sidebar.image(img, caption=f"Sample: {species}", use_container_width=True)
+                except Exception as e:
+                    pass
+
 st.sidebar.markdown("---")
 st.sidebar.write(f"**Total Specimens Mapped:** {len(df)}")
 
