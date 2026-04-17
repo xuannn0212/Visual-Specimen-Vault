@@ -1,0 +1,9 @@
+torch
+torchvision
+numpy
+pandas
+plotly
+umap-learn
+streamlit
+Pillow
+jupyterlab

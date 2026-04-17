@@ -1,0 +1,13 @@
+# Environments
+venv/
+__pycache__/
+.ipynb_checkpoints/
+
+# Datasets and Heavy Artifacts
+train/
+test/
+valid/
+processed/
+
+# OS generated files
+.DS_Store
