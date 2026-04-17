@@ -44,7 +44,7 @@ The project runs in three distinct phases. Run the Jupyter notebooks in the foll
    Once the processed artifacts exist, launch the Streamlit dashboard:
    ```bash
    streamlit run app.py
-
+   ```
 ## 🧠 Architecture Notes
 * To prevent Out-Of-Memory (OOM) crashes during inference, gradient calculation is strictly disabled (torch.no_grad()).
 * The Live Inference engine matches newly uploaded images against the vault using the original 2048-dimensional vectors rather than the squashed 3D vectors to ensure maximum mathematical accuracy before visualizing the result.
