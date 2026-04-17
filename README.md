@@ -23,6 +23,7 @@ Because the image dataset and extracted tensors are too large for standard GitHu
 
 ### 1. Environment Setup
 Clone this repository and install the required dependencies:
+
 ```bash
 git clone [https://github.com/YOUR-USERNAME/Visual-Specimen-Vault.git](https://github.com/YOUR-USERNAME/Visual-Specimen-Vault.git)
 cd Visual-Specimen-Vault
@@ -42,6 +43,7 @@ The project runs in three distinct phases. Run the Jupyter notebooks in the foll
    Loads the high-dimensional tensors and uses UMAP to project the topological structure into 3D space, saving the coordinates (`embeddings_3d_full.npy`).
 3. **Launch the Vault (`app.py`):**
    Once the processed artifacts exist, launch the Streamlit dashboard:
+   
    ```bash
    streamlit run app.py
    ```
