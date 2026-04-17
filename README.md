@@ -29,3 +29,25 @@ cd Visual-Specimen-Vault
 python -m venv venv
 source venv/bin/activate  # Or .\venv\Scripts\activate on Windows
 pip install -r requirements.txt
+```
+### 2. Dataset Preparation
+Download the **"Butterfly Image Classification 40 Species"** dataset from [Kaggle](https://www.kaggle.com/datasets/gpiosenka/butterfly-images40-species). 
+Extract the zip file and place the `train`, `test`, and `valid` folders directly into the root directory of this project so they sit alongside the code files.
+
+### 3. The ML Execution Pipeline
+The project runs in three distinct phases. Run the Jupyter notebooks in the following order:
+
+1. **Feature Extraction (`extract.ipynb`):** Loads the images, passes them through a headless ResNet50 model, and saves the 2048-D feature vectors (`embeddings_full.npy`) to a local `/processed` directory.
+2. **Dimensionality Reduction (`reduce_and_plot.ipynb`):**
+   Loads the high-dimensional tensors and uses UMAP to project the topological structure into 3D space, saving the coordinates (`embeddings_3d_full.npy`).
+3. **Launch the Vault (`app.py`):**
+   Once the processed artifacts exist, launch the Streamlit dashboard:
+   ```bash
+   streamlit run app.py
+
+## 🧠 Architecture Notes
+* To prevent Out-Of-Memory (OOM) crashes during inference, gradient calculation is strictly disabled (torch.no_grad()).
+* The Live Inference engine matches newly uploaded images against the vault using the original 2048-dimensional vectors rather than the squashed 3D vectors to ensure maximum mathematical accuracy before visualizing the result.
+
+## 📁 Dataset Acknowledgment
+Dataset provided by Gerry Piosenka via Kaggle: Butterfly Image Classification 40 Species.
